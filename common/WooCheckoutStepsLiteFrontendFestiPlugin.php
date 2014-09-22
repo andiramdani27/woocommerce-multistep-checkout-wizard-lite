@@ -235,25 +235,29 @@ class WooCheckoutStepsLiteFrontendFestiPlugin
         $this->onEnqueueJsFileAction(
             'festi-jquery-steps',
             'jquery.steps.min.js',
-            'jquery'
+            'jquery',
+            $this->_version
         );
         
         $this->onEnqueueJsFileAction(
             'festi-checkout-steps-collect_wizard',
             'collect_wizard.js',
-            'festi-checkout-steps-general'
+            'festi-checkout-steps-general',
+            $this->_version
         );
         
         $this->onEnqueueJsFileAction(
             'festi-checkout-steps-general',
             'general.js',
-            'wc-checkout'
+            'wc-checkout',
+            $this->_version
         );
         
         $this->onEnqueueJsFileAction(
             'festi-jquery-steps',
             'jquery.steps.min.js',
-            'jquery'
+            'jquery',
+            $this->_version
         );
  
         $settings = $this->getOptions('settings_'.$this->_currenteTheme);
@@ -316,14 +320,18 @@ class WooCheckoutStepsLiteFrontendFestiPlugin
 
         $this->onEnqueueCssFileAction(
             'festi-checkout-steps-styles',
-            'static/styles/frontend/style.css'
+            'static/styles/frontend/style.css',
+            array(),
+            $this->_version
         );
         
         $path = 'themes/'.$this->_currenteTheme.'/style.css';
         
         $this->onEnqueueCssFileAction(
             'festi-jquery-steps',
-            $path
+            $path,
+            array(),
+            $this->_version
         );
     } // end onInitCssAction
     

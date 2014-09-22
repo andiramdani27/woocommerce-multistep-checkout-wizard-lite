@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce MultiStep Checkout Wizard Lite
  * Plugin URI: http://wordpress.org/plugins/woocommerce-multistep-checkout-wizard-lite/
  * Description:  With MultiStep Checkout Wizard Lite you can change default WooCommerce Checkout page to the modern and easy step-by-step checkout.
- * Version: 1.0
+ * Version: 1.1
  * Author: Festi 
  * Author URI: http://festi.io/
  */
@@ -19,6 +19,7 @@ class WooCheckoutStepsLiteFestiPlugin extends FestiPlugin
     protected $_wizardThemes = array(
         'blue',
     );
+    protected $_version = '1.1';
     
     protected $_defaultTheme = 'blue';
      

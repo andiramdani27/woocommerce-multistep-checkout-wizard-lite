@@ -22,8 +22,7 @@ jQuery( document ).ready(function() {
     var woocommerceShipping = jQuery("form.checkout .woocommerce-shipping-fields");
     
     if (jQuery.inArray('shipping', fesiCheckoutSteps.disableSteps) < 0) {
-        woocommerceShipping.clone(true).appendTo('.festi-wizard-step-shipping');
-        woocommerceShipping.remove();
+        woocommerceShipping.appendTo('.festi-wizard-step-shipping');
     } else{
         woocommerceShipping.hide();
     }
@@ -48,7 +47,7 @@ jQuery( document ).ready(function() {
     jQuery("#order_review_heading").remove();
     jQuery(".woocommerce-billing-fields h3").remove();
     
-    jQuery('#payment input[name="payment_method"]').live('click', function() 
+    jQuery('div.festi-wizard-step-payment').on('click', '#payment input[name="payment_method"]', function() 
     {      
         var selector = jQuery(this).attr('id');
         jQuery('.payment_box').slideUp(200);

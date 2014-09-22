@@ -1,54 +1,4 @@
 jQuery(document).ready(function() {
-    // checkUserPostcode
-
-    function checkPostCode(type)
-    {                 
-        result = jQuery(".form-row#" + type + "_postcode_field").length > 0
-                 && jQuery("#" + type + "_postcode").val() != false
-                 && jQuery("#" + type + "_country").length > 0
-                 && jQuery("#" + type + "_country").val() != false;
-                 
-        if (result) {
-            var data = {
-                action: 'valid_post_code',
-                country: jQuery("#" + type + "_country").val(),
-                postCode: jQuery("#" + type + "_postcode").val()
-            };
-
-            jQuery.post(fesiCheckoutSteps.ajaxurl, data, function(response) {
-                if (response == false) {
-                   jQuery("#" + type + "_postcode").addClass("festi-wizard-post-code-error");
-                } else {
-                    jQuery("#" + type + "_postcode").removeClass("festi-wizard-post-code-error");
-                }
-            })
-        }
-    }
-    
-    checkPostCode('billing');
-    checkPostCode('shipping');
-        
-    jQuery('#billing_country').live('change', function() 
-    {      
-        checkPostCode('billing');
-    });
-    
-    jQuery('#billing_postcode').live('change', function() 
-    {
-        checkPostCode('billing');
-    });
-    
-    checkPostCode('shipping');
-    jQuery('#shipping_country').live('change', function() 
-    {      
-        checkPostCode('shipping');
-    });
-    
-    jQuery('#shipping_postcode').live('change', function() 
-    {
-        checkPostCode('shipping');
-    });
-
     // Init Wizard
 
     if (fesiCheckoutSteps.isAuthorizedUser == false && jQuery.inArray('login', fesiCheckoutSteps.disableSteps) < 0) {
@@ -96,11 +46,6 @@ jQuery(document).ready(function() {
     
     jQuery("#festi-checkout-steps-wizard").show();
     jQuery('form[name="checkout"]').css('visibility', 'visible');
-
-    
-    if (fesiCheckoutSteps.isAuthorizedUser == false && jQuery.inArray('login', fesiCheckoutSteps.disableSteps) < 0) {
-       
-    }
 
     // User Login
     function appendErrorRequiredClasses(selector)
